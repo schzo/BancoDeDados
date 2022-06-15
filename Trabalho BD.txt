@@ -1,0 +1,70 @@
+CREATE TABLE Funcionarios
+(
+Codigo INT PRIMARY KEY NOT NULL,
+PrimeiroNome VARCHAR(80),
+SegundoNome VARCHAR(80),
+UltimoNome VARCHAR(80),
+DataNasc DATE,
+CPF VARCHAR(11),
+RG VARCHAR (7),
+Endereco VARCHAR (80),
+CEP VARCHAR (8),
+Cidade VARCHAR(80),
+NumFone VARCHAR(11),
+CodigoDepartamento INT,
+Funcao VARCHAR(50),
+Salario DECIMAL)
+
+CREATE TABLE Departamentos
+(
+Codigo INT PRIMARY KEY NOT NULL,
+Nome VARCHAR(80),
+Localizacao VARCHAR (50),
+CodigoFuncionarioGerente INT)
+
+INSERT Funcionarios VALUES
+(13, 'João', 'Da Silva', 'Gomes', '2001-05-22', '15648948946', '1923012', 'Rua Benjamin Constant', '82590300', 'Curitiba', '41934512938', 3, 'Programador', 3000.30),
+(15, 'Marcos', 'Gomes', 'Figueiredo', '1999-04-10', '29340942234', '4895189', 'Rua Barão Do Rio Branco', '82590300', 'Curitiba', '41934810561', 1, 'Telefonista', 1500.00),
+(17, 'Marcelo', 'Ferreira', 'Macedo', '1974-02-25', '91203129031', '4894898', 'Rua José Viegas', '02675031', 'São Paulo', '11934510293', 4,'Gerente',5000.00),
+(12, 'Pedro', null, 'Sampaio', '1985-11-13', '81293128931', '9012312', 'Rua Bituruna', '50030230', 'Recife', '81532456701', 2, 'Telefonista', 1320.00),
+(9, 'André', 'Araujo', 'Andrade', '1966-12-25', '19203129033', '1290312', 'Rua Santo Amaro', '82590300', 'Curitiba', '41999213456', 6, 'Supervisor', 7500.00),
+(7, 'Lucas', 'Junior', 'Esteves', '2001-02-07', '12931230912', '1920312', 'Rua Ambrosio', '82306170', 'Curitiba', '41930102945', 3, 'Programador', 3000.30),
+(2, 'Paulo', 'Rodrigues', 'Estevam', '2003-03-03', '23419304123', '3451293', 'Rua Augusto', '3412945', 'Curitiba', '41341294051', 3, 'Consultor de Marketing', 750.45)
+
+INSERT Departamentos VALUES
+(20, 'Departamento Pessoal', 'Curitiba', 5),
+(10, 'Departamento Administrativo', 'Curitiba', 13),
+(12, 'Departamento Comercial', 'São Paulo', 11),
+(15, 'Departamento TI', 'Curitiba', 12),
+(16, 'Departamento Direitos Humanos', 'Recife', 9)
+
+SELECT SegundoNome, PrimeiroNome
+FROM Funcionarios 
+ORDER BY SegundoNome
+
+SELECT *
+FROM Funcionarios
+ORDER BY Cidade
+
+SELECT PrimeiroNome, SegundoNome, UltimoNome, Salario
+FROM Funcionarios
+WHERE Salario > 1000
+ORDER BY PrimeiroNome, SegundoNome, UltimoNome
+
+SELECT PrimeiroNome, DataNasc
+FROM Funcionarios
+ORDER BY DataNasc DESC
+
+SELECT NumFone
+FROM Funcionarios
+
+SELECT PrimeiroNome, SegundoNome, UltimoNome, Salario
+FROM Funcionarios
+WHERE SALARIO < 1000
+ORDER BY PrimeiroNome, SegundoNome, UltimoNome
+
+-
+
+
+
+
